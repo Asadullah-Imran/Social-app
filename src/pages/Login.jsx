@@ -25,7 +25,7 @@ const Login = () => {
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <div className="relative w-full max-w-md bg-cusBg p-6 rounded-lg shadow-lg">
         <div className="absolute top-0 left-0">
-          <img src="../../public/bigHero.png" alt="" className="h-44" />
+          <img src="/bigHero.png" alt="" className="h-44" />
         </div>
         <div className="space-y-8">
           <h1 className="ml-32 mt-8 text-2xl font-semibold text-gray-800">
