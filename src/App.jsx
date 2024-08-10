@@ -19,25 +19,25 @@ const Layout = () => {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
-    children: [
-      {
-        path: "/home",
-        element: <Home />,
-      },
-    ],
-  },
-  {
-    path: "/",
-    element: <Login />,
+    element: <Login />, // Show Login page without Layout
   },
   {
     path: "/register",
-    element: <Register />,
+    element: <Register />, // Show Register page without Layout
   },
   {
     path: "/verify",
-    element: <VerifyCode />,
+    element: <VerifyCode />, // Verify Code page with Layout
+  },
+  {
+    path: "/",
+    element: <Layout />, // Layout for nested routes
+    children: [
+      {
+        path: "/home",
+        element: <Home />, // Home page with Layout
+      },
+    ],
   },
 ]);
 

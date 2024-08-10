@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -8,11 +8,15 @@ const Register = () => {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     //here will perform handle submit
     e.preventDefault();
     console.log("Form is submitted \nand the data is ->");
     console.log(formData);
+
+    navigate("/verify");
   };
 
   return (
