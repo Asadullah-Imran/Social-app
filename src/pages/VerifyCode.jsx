@@ -29,7 +29,7 @@ const VerifyCode = () => {
     e.preventDefault();
 
     console.log(otp);
-    navigate("/home");
+    navigate("/");
   };
 
   return (

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +7,7 @@ const Login = () => {
     password: "",
   });
 
+  const navigate = useNavigate();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -17,6 +18,7 @@ const Login = () => {
     e.preventDefault();
     console.log("Form is submitted \nand the data is ->");
     console.log(formData);
+    navigate("/home");
   };
 
   return (
