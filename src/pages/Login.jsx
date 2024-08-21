@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { login } from "../services/auth.services";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -13,12 +14,17 @@ const Login = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     //here will perform handle submit
     e.preventDefault();
-    console.log("Form is submitted \nand the data is ->");
-    console.log(formData);
-    navigate("/home");
+    try {
+      const response = await login(formData);
+      console.log("Response from login is ->", response);
+      navigate("/home");
+    } catch (err) {
+      console.log("Error in form submission");
+      console.log(err);
+    }
   };
 
   return (
