@@ -23,7 +23,7 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="relative w-full max-w-md bg-cusBg p-6 rounded-lg shadow-lg">
+      <div className="relative w-full max-w-md m-1 bg-cusBg p-6 rounded-lg shadow-lg">
         <div className="absolute top-0 left-0">
           <img src="/bigHero.png" alt="" className="h-44" />
         </div>

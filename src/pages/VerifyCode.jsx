@@ -34,7 +34,7 @@ const VerifyCode = () => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="relative w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+      <div className="relative w-full max-w-md m-1 p-6 bg-white rounded-lg shadow-lg">
         {/* Back Button */}
         <button
           onClick={handleBack}

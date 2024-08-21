@@ -1,18 +1,26 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { register } from "../services/auth.services";
 
 const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     //here will perform handle submit
     e.preventDefault();
+    try {
+      await register(formData);
+    } catch (error) {
+      console.log("Error in form submission");
+      console.log(error);
+    }
     console.log("Form is submitted \nand the data is ->");
     console.log(formData);
 
@@ -21,7 +29,7 @@ const Register = () => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="relative w-full max-w-md bg-cusBg p-6 rounded-lg shadow-lg">
+      <div className="relative w-full max-w-md m-1 bg-cusBg p-6 rounded-lg shadow-lg">
         <div className="absolute top-0 left-0">
           <img src="/bigHero.png" alt="" className="h-44" />
         </div>
@@ -40,7 +48,7 @@ const Register = () => {
                 htmlFor="name"
                 className="block mt-2 text-sm font-medium text-gray-700"
               >
-                Full Name:
+                Name:
               </label>
               <input
                 id="name"
@@ -90,6 +98,25 @@ const Register = () => {
                 value={formData.password}
                 onChange={(e) =>
                   setFormData({ ...formData, password: e.target.value })
+                }
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="confirmPassword"
+                className="block mt-2 text-sm font-medium text-gray-700"
+              >
+                Confirm Password:
+              </label>
+              <input
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-cusDOrange focus:border-cusLOrange text-sm dark:bg-gray-600 dark:text-gray-100"
+                value={formData.confirmPassword}
+                onChange={(e) =>
+                  setFormData({ ...formData, confirmPassword: e.target.value })
                 }
                 required
               />
