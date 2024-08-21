@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { login } from "../services/auth.services";
+import { AuthContext } from "../context/authContext";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -13,12 +13,12 @@ const Login = () => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
-
+  const { loginWithContext } = useContext(AuthContext);
   const handleSubmit = async (e) => {
     //here will perform handle submit
     e.preventDefault();
     try {
-      const response = await login(formData);
+      const response = await loginWithContext(formData);
       console.log("Response from login is ->", response);
       navigate("/home");
     } catch (err) {
