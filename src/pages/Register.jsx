@@ -17,14 +17,14 @@ const Register = () => {
     e.preventDefault();
     try {
       await register(formData);
+      console.log("Form is submitted \nand the data is ->");
+      console.log(formData);
+
+      navigate("/verify");
     } catch (error) {
       console.log("Error in form submission");
       console.log(error);
     }
-    console.log("Form is submitted \nand the data is ->");
-    console.log(formData);
-
-    navigate("/verify");
   };
 
   return (
